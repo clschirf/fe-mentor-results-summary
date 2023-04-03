@@ -1,15 +1,19 @@
 import styled from '@emotion/styled';
 
-import NxWelcome from './nx-welcome';
+import Card from './components/Card';
 
 const StyledApp = styled.div`
-  // Your style here
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 `;
 
 export function App() {
   return (
     <StyledApp>
-      <NxWelcome title="fe-mentor-results-summary" />
+      <Card />
     </StyledApp>
   );
 }

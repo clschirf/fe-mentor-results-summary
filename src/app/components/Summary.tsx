@@ -14,10 +14,10 @@ import {
 } from '../palette';
 import SummaryBadge from './SummaryBadge';
 
-import { ReactComponent as MemoryIcon } from 'assets/images/iconMemory.svg';
-import { ReactComponent as ReactionIcon } from 'assets/images/iconReaction.svg';
-import { ReactComponent as VerbalIcon } from 'assets/images/iconVerbal.svg';
-import { ReactComponent as VisualIcon } from 'assets/images/iconVisual.svg';
+import { default as MemoryIcon } from 'assets/images/iconMemory.svg';
+import { default as ReactionIcon } from 'assets/images/iconReaction.svg';
+import { default as VerbalIcon } from 'assets/images/iconVerbal.svg';
+import { default as VisualIcon } from 'assets/images/iconVisual.svg';
 
 const StyledSummary = styled.div`
   display: flex;
@@ -25,6 +25,7 @@ const StyledSummary = styled.div`
   align-items: align-start;
   justify-content: center;
   padding-left: 2em;
+  width: 35vw;
 
   & > * {
     margin-top: 1em;
@@ -48,6 +49,7 @@ const Summary = () => {
         summaryTitle={'Reaction'}
         score={80}
         icon={ReactionIcon}
+        iconAltText='Lightning icon'
         textColour={reactionText}
         backgroundColour={reactionBackground}
       />
@@ -55,6 +57,7 @@ const Summary = () => {
         summaryTitle={'Memory'}
         score={92}
         icon={MemoryIcon}
+        iconAltText='Brain icon'
         textColour={memoryText}
         backgroundColour={memoryBackground}
       />
@@ -62,6 +65,7 @@ const Summary = () => {
         summaryTitle={'Verbal'}
         score={61}
         icon={VerbalIcon}
+        iconAltText='Speech bubble icon'
         textColour={verbalText}
         backgroundColour={verbalBackground}
       />
@@ -69,6 +73,7 @@ const Summary = () => {
         summaryTitle={'Visual'}
         score={72}
         icon={VisualIcon}
+        iconAltText='Eye icon'
         textColour={visualText}
         backgroundColour={visualBackground}
       />

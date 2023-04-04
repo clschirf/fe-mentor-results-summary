@@ -4,7 +4,8 @@ import { primaryTextDark, primaryTextMid } from '../palette';
 type SummaryBadgeProps = {
   summaryTitle: string;
   score: number;
-  icon: any;
+  icon: string;
+  iconAltText: string;
   textColour: string;
   backgroundColour: string;
 };
@@ -12,16 +13,29 @@ type SummaryBadgeProps = {
 const StyledSummaryBadge = styled.div<
   Pick<SummaryBadgeProps, 'textColour' | 'backgroundColour'>
 >`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   color: ${(props) => props.textColour};
   background: ${(props) => props.backgroundColour};
   padding: 0.25em;
-  display: flex;
   border-radius: 0.75em;
-  flex-direction: row;
+  width: 100%;
 
   & > * {
     padding: 0.5em;
   }
+`;
+
+const TitleContainer = styled.div`
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+`;
+
+const ScoreContainer = styled.div`
+  text-align: right;
+  justify-content: flex-end;
 `;
 
 const Score = styled.span`
@@ -33,21 +47,29 @@ const TotalScore = styled.span`
   color: ${primaryTextMid};
 `;
 
-const Icon = styled.div<Pick<SummaryBadgeProps, 'textColour'>>`
-  color: ${(props) => props.textColour};
+const Icon = styled.div`
+  padding-right: 0.5em;
 `;
 
 const SummaryBadge = (props: SummaryBadgeProps) => {
+  console.log('icon: ', props.icon);
+
   return (
     <StyledSummaryBadge
       textColour={props.textColour}
       backgroundColour={props.backgroundColour}>
-      {/* <Icon textColour={props.textColour}>{props.icon}</Icon> */}
-      {/* {props.icon} */}
-      <div>{props.summaryTitle}</div>
-      <div>
+      <TitleContainer>
+        <Icon>
+          <img
+            src={props.icon}
+            alt={props.iconAltText}
+          />
+        </Icon>
+        <div>{props.summaryTitle}</div>
+      </TitleContainer>
+      <ScoreContainer>
         <Score>{props.score}</Score> <TotalScore>/ 100</TotalScore>
-      </div>
+      </ScoreContainer>
     </StyledSummaryBadge>
   );
 };
